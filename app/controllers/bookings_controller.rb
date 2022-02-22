@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
 # GET /restaurants
 def index
