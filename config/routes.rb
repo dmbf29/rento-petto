@@ -11,5 +11,4 @@ Rails.application.routes.draw do
   namespace :owner do
     resources :bookings, only: :index
   end
-
 end
