@@ -1,60 +1,61 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: %i[show edit update destroy]
 
-def index
-  @bookings = policy_scope(Booking).order([:user, Booking])
-end
-
-# GET /restaurants/1
-def show
-  # authorize @restaurant # performed in the set_restaurant
-end
-
-# GET /restaurants/new
-def new
-  @booking = Booking.new
-  authorize @booking
-end
-
-# GET /restaurants/1/edit
-def edit
-  # authorize @restaurant # performed in the set_restaurant
-end
-
-# POST /restaurants
-def create
-  @booking = Booking.new(booking_params)
-  @booking.user = current_user
-
-  authorize @booking
-  if @booking.save
-    redirect_to @booking, notice: 'Booking was successfully created.'
-  else
-    render :new
+  def index
+    @bookings = policy_scope(Booking).order([:user, Booking])
   end
-end
 
-# PATCH/PUT /restaurants/1
-def update
-  # without Pundit:
-  # raise 'NotAuthorized' unless current_user == @restaurant.user
+  # GET /restaurants/1
+  # def show
+    # authorize @restaurant # performed in the set_restaurant
+  # end
 
-  # authorize @restaurant # performed in the set_restaurant
-  if @booking.update(booking_params)
-    redirect_to @booking, notice: 'Booking was successfully updated.'
-  else
-    render :edit
+  # GET /restaurants/new
+  def new
+    @booking = Booking.new
+    @pet = Pet.find_by(params[:id])
+    authorize @booking
   end
-end
 
-# DELETE /restaurants/1
-def destroy
-  # without Pundit:
-  # raise 'NotAuthorized' unless current_user == @restaurant.user
+  # POST /restaurants
+  def create
+    @pet = Pet.find_by(params[:id])
+    @booking = Booking.new(booking_params)
+    @booking.pet = @pet
+    @booking.user = current_user
+    authorize @booking
+    if @booking.save
+      redirect_to bookings_path, notice: 'Booking was successfully created.'
+    else
+      render 'pets/show'
+    end
+  end
 
-  @booking.destroy
-  redirect_to bookings_url, notice: 'Booking was successfully destroyed.'
-end
+  # GET /restaurants/1/edit
+  def edit
+    authorize @restaurant # performed in the set_restaurant
+  end
+
+  # PATCH/PUT /restaurants/1
+  def update
+    # without Pundit:
+    # raise 'NotAuthorized' unless current_user == @restaurant.user
+
+    # authorize @restaurant # performed in the set_restaurant
+    if @booking.update(booking_params)
+      redirect_to @booking, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  # DELETE /restaurants/1
+  # def destroy
+    # without Pundit:
+    # raise 'NotAuthorized' unless current_user == @restaurant.user
+  #   @booking.destroy
+  #   redirect_to bookings_url, notice: 'Booking was successfully destroyed.'
+  # end
 
   private
 
@@ -66,6 +67,6 @@ end
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:pet_id, :user_id)
+    params.require(:booking).permit(:pet_id, :user_id, :start_date, :return_date)
   end
 end
