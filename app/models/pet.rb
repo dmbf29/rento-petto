@@ -7,4 +7,10 @@ class Pet < ApplicationRecord
   validates :species, presence: true
   validates :breed, presence: true
   validates :price, presence: true, numericality: { only_integer: true }, allow_blank: false
+
+  SPECIES = ['bear', 'turtle', 'flying squirrel', 'fish', 'alien', 'dog', 'cat']
+  enum status: {
+    healthy: 0,
+    injured: 1,
+    dead: 2
 end
