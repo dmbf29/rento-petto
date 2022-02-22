@@ -2,7 +2,7 @@
 def create_users(n)
   puts "creating #{n} random users!"
   n.times do |count|
-    full = Faker::Name.name
+    full = Faker::Name.namerail
     User.create!(
       first_name: full.split[0],
       last_name: full.split[1],
