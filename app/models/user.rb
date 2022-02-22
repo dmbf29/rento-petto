@@ -9,5 +9,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # Validations
-
+  validates :first_name, presence: true, length: { minimum: 2 }
+  validates :last_name, presence: true, length: { minimum: 2 }
 end
