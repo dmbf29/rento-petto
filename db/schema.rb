@@ -28,8 +28,16 @@ ActiveRecord::Schema.define(version: 2022_02_22_070748) do
   end
 
   create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "location"
+    t.string "species"
+    t.string "character"
+    t.integer "price"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,4 +56,5 @@ ActiveRecord::Schema.define(version: 2022_02_22_070748) do
 
   add_foreign_key "bookings", "pets"
   add_foreign_key "bookings", "users"
+  add_foreign_key "pets", "users"
 end

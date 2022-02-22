@@ -19,7 +19,7 @@ def create_pets(n)
   puts "creating #{n} random pets!"
   n.times do |count|
     p = Pet.new(
-      title: Faker::FunnyName.name,
+      name: Faker::FunnyName.name,
       description: 'the best pet ever',
       location: addresses.sample,
       species: ['cats', 'dogs', 'monkeys', 'rabbits', 'birds', 'snakes'].sample,
@@ -28,7 +28,7 @@ def create_pets(n)
       user: random_user
       # photo: pet_photos.sample
     )
-    p.remote_photo_url = pet_photos.sample
+    # p.remote_photo_url = pet_photos.sample
     p.save!
     print "*"
     print "\n" if (count + 1) % 10 == 0
@@ -38,7 +38,7 @@ end
 def create_bookings
   User.all.each do |user|
     puts "...creating booking for #{user.first_name} #{user.last_name}!"
-    start_date = Faker::Date.between(1.day.from_now, 20.day.from_now)
+    start_date = Faker::Date.between(from: 1.day.from_now, to: 20.day.from_now)
     Booking.create!(
       user: user,
       pet: random_pet,
