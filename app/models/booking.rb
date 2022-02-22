@@ -17,4 +17,11 @@ class Booking < ApplicationRecord
   def start_before_return
     errors.add(:checkout, "Sorry, starting date can't be before returning date.") if start_date.present? && return_date.present? && return_date < start_date
   end
+
+  enum status: {
+    pending: 0,
+    active: 1,
+    archived: 2
+  }
+
 end
