@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-# GET /restaurants
 def index
-  @bookings = policy_scope(Booking).order( )
+  @bookings = policy_scope(Booking).order([:user, Booking])
 end
 
 # GET /restaurants/1
@@ -57,10 +56,11 @@ def destroy
   redirect_to bookings_url, notice: 'Booking was successfully destroyed.'
 end
 
-private
+  private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_booking
-    @booking = Bookig.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
