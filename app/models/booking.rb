@@ -5,6 +5,7 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :return_date, presence: true
   validates :status, presence: true
+  # validates :rating, inclusion { in: [0, 1, 2, 3], allow_nil: false }
 
   validate :dates_cannot_be_in_the_past
   validate :start_before_return
