@@ -7,4 +7,5 @@ class Pet < ApplicationRecord
   validates :species, presence: true
   validates :breed, presence: true
   validates :price, presence: true, numericality: { only_integer: true }, allow_blank: false
+
 end
