@@ -20,7 +20,7 @@ create_bookings # creates for each randomly generated user 1 booking
 # create admin users (will be assigned later)
 # admin as well as ourselves
 puts "\n...create admin users!"
-User.create!(first_name: "admin", last_name: "admin", password: "admin", email:"admin@admin.com")
+User.create!(first_name: "admin", last_name: "admin", password: "123456", email:"admin@admin.com")
 User.create!(first_name: "risako", last_name: "nagai", password: "123456", email:"risako@nagai.com")
 User.create!(first_name: "taylor", last_name: "mravic", password: "123456", email:"taylor@mravic.com")
 User.create!(first_name: "doug", last_name: "theman", password: "123456", email:"doug@theman.com")
