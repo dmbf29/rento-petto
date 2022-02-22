@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @pets = policy_scope(Pet) # looks inside pet_policy resolve to find Pet.all, policy_scope is only used in index
   end
