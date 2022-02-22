@@ -13,6 +13,13 @@ class PetPolicy < ApplicationPolicy
   def create?
     true
   end
-end
 
-# record, user
+  def update?
+    record.user == user # only the pet creator can update it
+  end
+
+  def destroy?
+    record.user == user # only the pet creator can destroy it
+  end
+
+end
