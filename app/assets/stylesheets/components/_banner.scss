@@ -2,13 +2,9 @@
 .banner {
   background-size: cover;
   background-position: center;
-  min-height: 650px;
+  min-height: 700px;
   padding: 150px 0;
   width: 100%;
-}
-
-.container{
-  margin: 40px;
 }
 
 .container h1{
@@ -21,7 +17,7 @@
 }
 
 .container p{
-  padding: 20px;
+  padding: 5px;
   color: lightgray;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 24px;
@@ -35,5 +31,5 @@
   border-radius: 4px;
   background: darkcyan;
   transition: background 0.3s ease;
-  font-weight: 300;
+  font-weight: 1000;
 }
