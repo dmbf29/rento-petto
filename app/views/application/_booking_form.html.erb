@@ -1,11 +1,9 @@
 <h3>Create a new booking</h3>
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :return_date, as: :date %>
+<%= simple_form_for [ @pet, @booking ] do |f| %>
+  <%= f.input :start_date, as: :date, html5: true %>
+  <%= f.input :return_date, as: :date, html5: true  %>
 
   <%= f.submit class: "btn btn-primary" %>
-  <%# <%= link_to 'New Booking', pet_bookings_path %> %>
-
 <% end %>
 
 <%= link_to 'Back', pets_path %>
