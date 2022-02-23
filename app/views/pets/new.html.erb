@@ -1,1 +1,14 @@
-<h1>Pets#new</h1>
+<section class="py-4">
+<div class="container">
+  <h1>Share Your Pet</h1>
+  <%= simple_form_for(@pet) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :character %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+
+

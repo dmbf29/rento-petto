@@ -1,0 +1,24 @@
+
+<div class="card-product my-3">
+  <img src= <%= booking.pet.photo_url %>/>
+  <div class="card-product-infos w-100">
+    <div class="d-flex justify-content-between">
+      <div class="owner">
+        <h2>Owner</h2>
+        <p>Pet name: <%= booking.pet.name %></p>
+        <p>Pet species: <%= booking.pet.species %></p>
+        <p>Pet owner: <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %></p>
+        <p><%= booking.pet.user.email %> </p>
+        <p>Lives at: <%= booking.pet.location %></p>
+      </div>
+      <div class="renter">
+        <h2>Renter</h2>
+        <p>Rented by: <%= booking.user.first_name %> <%=  booking.user.last_name %></p>
+        <p><%= booking.user.email %></p>
+        <p>From: <%= booking.start_date %> </p>
+        <p>From: <%= booking.return_date %> </p>
+        <p>Status: <%= booking.status %></p>
+      </div>
+    </div>
+  </div>
+</div>
