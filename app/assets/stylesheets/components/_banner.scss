@@ -4,12 +4,16 @@
   background-position: center;
   min-height: 650px;
   padding: 150px 0;
+  width: 100%;
+}
+
+.container{
+  margin: 40px;
 }
 
 .container h1{
   padding: 20px;
   background-position: center;
-  margin: 0;
   color: floralwhite;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 68px;
@@ -18,7 +22,6 @@
 
 .container p{
   padding: 20px;
-  margin: 5px;
   color: lightgray;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 24px;
@@ -27,10 +30,10 @@
 
 .btn-flat {
   padding: 20px;
-  margin: 5px;
   color: floralwhite;
   padding: 8px 24px;
   border-radius: 4px;
   background: darkcyan;
   transition: background 0.3s ease;
+  font-weight: 300;
 }
