@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2022_02_23_035033) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "photo_url"
     t.string "photo"
+    t.string "photo_url"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
