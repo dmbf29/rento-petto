@@ -1,22 +1,8 @@
+<h1 class="text-center mt-3">All current bookings</h1>
 <div class="container">
-  <div class="row">
-    <div class="col col-md 6 offset-md-3">
-
-      <h1>Here are all the bookings</h1>
-      <% @bookings.each do |booking| %>
-        <%= booking.pet.photo %>
-        <p>Pet name: <%= booking.pet.name %></p>
-        <p>Pet species: <%= booking.pet.species %></p>
-        <p>Pet owner: <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %></p>
-        <p><%= booking.pet.user.email %> </p>
-        <p>Lives at: <%= booking.pet.location %></p>
-        <hr>
-        <p>Rented by: <%= booking.user.first_name %> <%=  booking.user.last_name %></p>
-        <p><%= booking.user.email %></p>
-        <p>From: <%= booking.start_date %> </p>
-        <p>From: <%= booking.return_date %> </p>
-        <p>Status: <%= booking.status %></p>
-      <% end %>
-    </div>
-  </div>
+<% @bookings.each do |booking| %>
+  <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+  <%= render 'booking_card', booking: booking %>
+  <%# </div> %>
+  <% end %>
 </div>
