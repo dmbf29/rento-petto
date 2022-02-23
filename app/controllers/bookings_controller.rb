@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
 
   # POST /restaurants
   def create
-    @pet = Pet.find_by(params[:id])
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new(booking_params)
     @booking.pet = @pet
     @booking.user = current_user
