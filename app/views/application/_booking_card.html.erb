@@ -1,24 +1,19 @@
 
 <div class="card-product my-3">
   <img src= <%= booking.pet.photo_url %>>
-  <div class="card-product-infos w-100">
-    <div class="d-flex justify-content-between">
-      <div class="owner">
-        <h2>Owner</h2>
-        <p>Pet name: <%= booking.pet.name %></p>
-        <p>Pet species: <%= booking.pet.species %></p>
-        <p>Pet owner: <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %></p>
-        <p><%= booking.pet.user.email %> </p>
-        <p>Lives at: <%= booking.pet.location %></p>
-      </div>
-      <div class="renter">
-        <h2>Renter</h2>
-        <p>Rented by: <%= booking.user.first_name %> <%=  booking.user.last_name %></p>
-        <p><%= booking.user.email %></p>
-        <p>From: <%= booking.start_date %> </p>
-        <p>From: <%= booking.return_date %> </p>
-        <p>Status: <%= booking.status %></p>
-      </div>
+  <h3><span class="status-pill"><%= booking.status %></span></h3>
+  <div class="card-product-infos d-flex justify-content-between">
+    <div class="w-50 mx-1 text-start">
+      <h2>Enjoy your time with <span class="pet-name"><%= booking.pet.name %></span>!</h2>
+      <p>Owner <%= booking.pet.name %> at <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %>'s </p>
+      <p><%= booking.pet.location %></p>
+    </div>
+    <div class="w-50 mx-1 text-end">
+      <h2>Rental details <i class="fas fa-paw"></i></h2>
+      <p>Pick up <%= booking.pet.name %> at</p>
+      <p><%= booking.start_date %></p>
+      <p>Return <%= booking.pet.name %> home by </p>
+      <p><%= booking.return_date %></p>
     </div>
   </div>
 </div>
