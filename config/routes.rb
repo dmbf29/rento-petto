@@ -8,15 +8,15 @@ Rails.application.routes.draw do
     # GET /pets
     # GET /pets/:pet_id
     # GET /pets/new
-    # POST /pets/:pet_id
+    # POST /pets
     resources :bookings, only: [:create]
-      # POST /pets/:id/bookings
+      # POST /pets/:pet_id/bookings
   end
   resources :bookings, only: [:index, :update]
     # GET /bookings/
     # PATCH /bookings/:booking_id
   namespace :owner do
     resources :bookings, only: :index
-      # GET /owner/bookings ???
+      # GET /owner/bookings
   end
 end

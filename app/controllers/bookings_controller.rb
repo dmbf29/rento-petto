@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show edit update destroy]
 
   def index
-    @bookings = policy_scope(Booking).order([:user, Booking])
+    @bookings = policy_scope(Booking).order(:start_date)
   end
 
   # GET /restaurants/1
