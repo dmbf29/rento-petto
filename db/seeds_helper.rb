@@ -2,7 +2,7 @@
 def create_users(n)
   puts "creating #{n} random users!"
   n.times do |count|
-    full = Faker::Name.namerail
+    full = Faker::Name.name
     User.create!(
       first_name: full.split[0],
       last_name: full.split[1],
@@ -26,9 +26,9 @@ def create_pets(n)
       character: ['friendly', 'playful', 'happy', 'grumpy', 'speedy', 'clumsy', 'fuzzy', 'sleepy', 'supercharged'].sample,
       price: [1000,2000,3000,4000].sample,
       user: random_user
-      # photo: pet_photos.sample
+      photo: pet_photos.sample
     )
-    # p.remote_photo_url = pet_photos.sample
+    p.remote_photo_url = pet_photos.sample
     p.save!
     print "*"
     print "\n" if (count + 1) % 10 == 0
