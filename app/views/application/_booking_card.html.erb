@@ -2,11 +2,11 @@
 <div class="card-product my-3">
   <img src= <%= booking.pet.photo_url %>>
   <h3><span class="status-pill"><%= booking.status %></span></h3>
-  <div class="card-product-infos d-flex justify-content-between">
+  <div class="card-product-infos w-100 d-flex justify-content-between">
     <div class="w-50 mx-1 text-start">
       <h2>Enjoy your time with <span class="pet-name"><%= booking.pet.name %></span>!</h2>
-      <p>Owner <%= booking.pet.name %> at <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %>'s </p>
-      <p><%= booking.pet.location %></p>
+      <p><%= booking.pet.name %>'s owner is <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %>, who lives at </p>
+      <p><i class="fas fa-map-marked-alt"></i> <%= booking.pet.location %></p>
     </div>
     <div class="w-50 mx-1 text-end">
       <h2>Rental details <i class="fas fa-paw"></i></h2>
