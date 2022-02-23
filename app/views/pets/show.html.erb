@@ -1,42 +1,42 @@
-    <div class="container my-5">
-      <div class="card-trip">
-        <img >
-      <div class="row">
-        <div class="col-10 col-lg-8">
-          <p id="notice"><%= notice %></p>
-          <p>
-            <strong>Name:</strong>
-            <%= @pet.name %>
-          </p>
-          <p>
-            <strong>Species:</strong>
-            <%= @pet.species %>
-          </p>
-          <p>
-            <strong>Description:</strong>
-            <%= @pet.description %>
-          </p>
-          <p>
-            <strong>Owner's address:</strong>
-            <%= @pet.location %>
-          </p>
-          <p>
-            <strong>What is this pet like?:</strong>
-            <%= @pet.character %>
-          </p>
-          <p>
-            <strong>Price:</strong>
-            <%= @pet.price %>
-          </p>
-          <% if policy(@pet).edit? %>
-            <%= link_to 'Edit', edit_pet_path(@pet) %> |
-          <% end %>
-          <%= link_to 'Back', pets_path %>
-        </div>
-        <div class="card-category">
-            <%= render 'booking_form' %>
-          </div>
-        </div>
+<div class="container my-5">
+  <div class="row">
+    <div class="col col-md-4">
+      <img src= <%= @pet.photo_url %>, style="width:180px;">
+    </div>
+    <div class="col col-md-4">
+      <p id="notice"><%= notice %></p>
+        <p>
+          <strong>Name:</strong>
+          <%= @pet.name %>
+        </p>
+        <p>
+          <strong>Species:</strong>
+          <%= @pet.species %>
+        </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @pet.description %>
+        </p>
+        <p>
+          <strong>Owner's address:</strong>
+          <%= @pet.location %>
+        </p>
+        <p>
+          <strong>What is this pet like?:</strong>
+          <%= @pet.character %>
+        </p>
+        <p>
+          <strong>Price:</strong>
+          <%= @pet.price %>
+        </p>
+        <% if policy(@pet).edit? %>
+          <%= link_to 'Edit', edit_pet_path(@pet) %> |
+        <% end %>
+        <%= link_to 'Back', pets_path %>
       </div>
+      <div class="col col-md-4">
+        <%= render 'booking_form' %>
       </div>
     </div>
+  </div>
+</div>
