@@ -58,11 +58,11 @@ User.destroy_all
 
 # admin as well as ourselves
 puts "\n...create admin users!"
-User.create!(first_name: "admin", last_name: "admin", password: "123456", email:"admin@admin.com")
-User.create!(first_name: "risako", last_name: "nagai", password: "123456", email:"risako@nagai.com")
-User.create!(first_name: "taylor", last_name: "mravic", password: "123456", email:"taylor@mravic.com")
-User.create!(first_name: "doug", last_name: "theman", password: "123456", email:"doug@theman.com")
-User.create!(first_name: "trouni", last_name: "assassin", password: "123456", email:"trouni@assassin.com")
+User.create!(first_name: "Admin", last_name: "Admin", password: "123456", email:"admin@admin.com")
+User.create!(first_name: "Risako", last_name: "Nagai", password: "123456", email:"risako@nagai.com")
+User.create!(first_name: "Taylor", last_name: "Mravic", password: "123456", email:"taylor@mravic.com")
+User.create!(first_name: "Doug", last_name: "Theman", password: "123456", email:"doug@theman.com")
+User.create!(first_name: "Trouni", last_name: "Assassin", password: "123456", email:"trouni@assassin.com")
 
 
 # creates n random users and saves them in the db
@@ -89,7 +89,9 @@ addresses =
       first_name: full.split[0],
       last_name: full.split[1],
       email: Faker::Internet.email,
-      password: Faker::Internet.password(6, 12),
+      password: "123456"
+      # password: Faker::Internet.password(6, 12),
+
     )
     print "*"
     # print "\n" if (count + 1) % 10 == 0
@@ -100,8 +102,9 @@ addresses =
   puts "creating #12 random pets!"
   12.times do
     p = Pet.new(
-      name: Faker::FunnyName.name.split.first,
-      description: 'the best pet ever',
+      # name: Faker::FunnyName.name.split.first,
+      name: Faker::Games::SuperMario.character,
+      description: ['The best pet ever', 'Soft and warm', 'He will bite your toes off', 'So fun to play with'].sample(1)[0],
       location: addresses.sample,
       species: ['cats', 'dogs', 'monkeys', 'rabbits', 'birds', 'snakes'].sample,
       character: ['friendly', 'playful', 'happy', 'grumpy', 'speedy', 'clumsy', 'fuzzy', 'sleepy', 'supercharged'].sample,
@@ -120,7 +123,7 @@ addresses =
 
   User.all.each do |user|
     puts "...creating booking for #{user.first_name} #{user.last_name}!"
-    start_date = Faker::Date.between(from: 1.day.from_now, to: 20.day.from_now)
+    start_date = Faker::Time.between(from: DateTime.now, to: DateTime.now + 20)
     Booking.create!(
       user: user,
       pet: Pet.offset(rand(Pet.count)).first,
