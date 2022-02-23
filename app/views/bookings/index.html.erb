@@ -4,15 +4,18 @@
 
       <h1>Here are all the bookings</h1>
       <% @bookings.each do |booking| %>
-        picture of that pet
-        <%= booking.pet.id %>
-        who is the owner
-        owner's address
-        who is renting it
-        renter's address
-        start date
-        return date
-
+        <%= booking.pet.photo %>
+        <p>Pet name: <%= booking.pet.name %></p>
+        <p>Pet species: <%= booking.pet.species %></p>
+        <p>Pet owner: <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %></p>
+        <p><%= booking.pet.user.email %> </p>
+        <p>Lives at: <%= booking.pet.location %></p>
+        <hr>
+        <p>Rented by: <%= booking.user.first_name %> <%=  booking.user.last_name %></p>
+        <p><%= booking.user.email %></p>
+        <p>From: <%= booking.start_date %> </p>
+        <p>From: <%= booking.return_date %> </p>
+        <p>Status: <%= booking.status %></p>
       <% end %>
     </div>
   </div>
