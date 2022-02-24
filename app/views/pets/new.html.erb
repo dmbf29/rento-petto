@@ -1,12 +1,14 @@
 <section class="py-4">
-<div class="container">
-  <h1>Share Your Pet</h1>
-  <%= simple_form_for(@pet) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :character %>
-    <%= f.input :description %>
-     <%= f.input :photo, as: :file %>
-    <%= f.input :price %>
-    <%= f.submit %>
-  <% end %>
-</div>
+  <div class="container">
+    <h1>Share Your Pet</h1>
+    <%= simple_form_for(@pet) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :character %>
+      <%= f.input :description %>
+      <%= f.input :species %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</section>
