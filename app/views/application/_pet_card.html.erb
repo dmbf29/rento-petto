@@ -1,0 +1,12 @@
+<div class="card-trip">
+  <img src=<%= pet.photo_url %> >
+  <%= link_to '', pet_path(pet) %>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= pet.name %></h2>
+      <p>"<%= pet.description %>"</p>
+    </div>
+    <h3 class="card-trip-pricing"><%= pet.price %>円</h3>
+    <img src="https://avatars.githubusercontent.com/u/59186645?v=4" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
