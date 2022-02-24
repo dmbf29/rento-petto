@@ -11,6 +11,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    update?
+  end
+
+  def update?
+    record.pet.user == user
   end
 end
