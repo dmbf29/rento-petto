@@ -92,7 +92,7 @@ User.create!(first_name: "Doug", last_name: "Theman", password: "123456", email:
 User.create!(first_name: "Trouni", last_name: "Assassin", password: "123456", email:"trouni@assassin.com")
 
 
-# creates n random users and saves them in the db
+# FAKE PET ADDRESSES IN TOKYO
 addresses =
 [
   "2-2, Uchisaiwai-cho 2-chome, Chiyoda-ku, Tokyo",
@@ -108,42 +108,46 @@ addresses =
   "448-1050, Nishishinjuku Shinjuku Sentabiru(46-kai), Shinjuku-ku, Tokyo"
 ]
 
-
+  # GENERATING FAKE INSTANCES OF USERS
   puts "creating #12 random users!"
   12.times do
     full = Faker::Name.name
-    User.create!(
+
+    u = User.new(
       first_name: full.split[0],
       last_name: full.split[1],
       email: Faker::Internet.email,
-      password: "123456"
-        file = URI.open('https://thispersondoesnotexist.com/image')
-        user.avatar_photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-end
-    print "*"
-
-  end
-
-  pet_photos.each do |species, photos|
-    photos.each do |photo|
-    p = Pet.new(
-      name: Faker::Games::SuperMario.character,
-      description: ['The best pet ever', 'Soft and warm', 'He will bite your toes off', 'So fun to play with'].sample(1)[0],
-      location: addresses.sample,
-      species: species.to_s,
-      character: ['friendly', 'playful', 'happy', 'grumpy', 'speedy', 'clumsy', 'fuzzy', 'sleepy', 'supercharged'].sample,
-      price: [1000,2000,3000,4000].sample,
-      user: User.offset(rand(User.count)).first
+      password: "123456",
+      avatar:
     )
 
-    p.save!
-    file = URI.open(photo)
-    p.photo.attach(io: file, filename: 'pet.png', content_type: 'image/png')
+    u.save!
+    file = URI.open('https://thispersondoesnotexist.com/image')
+    u.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
     print "*"
   end
-end
 
+  # GENERATING FAKE INSTANCES OF PETS
+    pet_photos.each do |species, photos|
+      photos.each do |photo|
+        p = Pet.new(
+          name: Faker::Games::SuperMario.character,
+          description: ['The best pet ever', 'Soft and warm', 'He will bite your toes off', 'So fun to play with'].sample(1)[0],
+          location: addresses.sample,
+          species: species.to_s,
+          character: ['friendly', 'playful', 'happy', 'grumpy', 'speedy', 'clumsy', 'fuzzy', 'sleepy', 'supercharged'].sample,
+          price: [1000,2000,3000,4000].sample,
+          user: User.offset(rand(User.count)).first
+        )
 
+        p.save!
+        file = URI.open(photo)
+        p.photo.attach(io: file, filename: 'pet.png', content_type: 'image/png')
+        print "*"
+      end
+    end
+
+  # CREATING FAKE BOOKINGS
   User.all.each do |user|
     puts "...creating booking for #{user.first_name} #{user.last_name}!"
     start_date = Faker::Time.between(from: DateTime.now, to: DateTime.now + 20)
@@ -161,6 +165,6 @@ def random_user
   User.offset(rand(User.count)).first
 end
 
-  def random_pet
-    Pet.offset(rand(Pet.count)).first
-  end
+def random_pet
+  Pet.offset(rand(Pet.count)).first
+end
