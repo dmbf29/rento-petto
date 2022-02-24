@@ -146,4 +146,3 @@ end
   def random_pet
     Pet.offset(rand(Pet.count)).first
   end
-
