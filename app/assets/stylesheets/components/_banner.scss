@@ -1,10 +1,10 @@
 
 .banner {
-  background-size: cover;
-  background-position: center;
-  min-height: 700px;
-  padding: 150px 0;
-  width: 100%;
+background-size: cover;
+background-position: center;
+min-height: 700px;
+padding: 100px 0;
+width: 100%;
 }
 
 .container h1{
@@ -24,12 +24,12 @@
   font-weight: bold;
 }
 
-.btn-flat {
+.btn-gradient {
   padding: 20px;
   color: floralwhite;
   padding: 8px 24px;
   border-radius: 4px;
   background: darkcyan;
   transition: background 0.3s ease;
-  font-weight: 1000;
+  font-weight: bold;
 }
