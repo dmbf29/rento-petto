@@ -32,6 +32,12 @@
         <%= @pet.price %>
         <strong> / day</strong>
       </p>
+      <h3>What users are saying about <%= @pet.name %></h3>
+      <hr>
+      <% @pet.reviews.each do |reivew| %>
+        <p>"<%= review.content %>"</p>
+        <%= review.rating %>
+      <% end %>
       <%= link_to 'Back', pets_path, class: "btn btn-gradient"%>
     </div>
     <div class="col col-md-4">
