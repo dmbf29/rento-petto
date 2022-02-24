@@ -1,0 +1,31 @@
+
+<div class="card-product my-3">
+  <img src= <%= booking.pet.photo_url %>>
+  <h3><span class="status-pill"><%= booking.status %></span></h3>
+  <div class="card-product-infos w-100 d-flex justify-content-between">
+    <div class="w-50 mx-1 text-start">
+      <h2>Booking for your pet <span class="pet-name"><%= booking.pet.name %></span>!</h2>
+      <p>Booking was made by <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %>. </p>
+      <p><i class="fas fa-map-marked-alt"></i> <%= booking.pet.location %></p>
+        <div class="d-flex justify-content-start">
+          <% if booking.pending? %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-success' %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+            <%= f.submit 'Decline', class: 'btn btn-danger' %>
+          <% end %>
+        <% else %>
+          <p class='status-display'><%= booking.status %></p>
+        <% end %>
+        </div>
+    </div>
+    <div class="w-50 mx-1 text-end">
+      <h2>Rental details <i class="fas fa-paw"></i></h2>
+      <p><i class="far fa-calendar-alt"></i> Rental for <%= booking.pet.name %> starts at <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+      <p><i class="far fa-calendar-alt"></i> Rental for <%= booking.pet.name %> ends at <%= booking.return_date.strftime("%b %e, %l:%M %p") %></p>
+    </div>
+  </div>
+</div>

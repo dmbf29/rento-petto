@@ -1,22 +1,8 @@
-<h1>Here are all your pending bookings</h1>
+<h1 class="text-center mt-3">Rentals for my pets</h1>
+<div class="container">
 <% @bookings.each do |booking| %>
-  <p>Booking was made by <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-  <p>From <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
-  <p>To <%= booking.return_date.strftime("%b %e, %l:%M %p") %></p>
-  <%= booking.pet.name %>
-  <br>
-  <% if booking.pending? %>
-    <%= simple_form_for booking do |f| %>
-      <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-      <%= f.submit 'Accept', class: 'btn btn-success' %>
-    <% end %>
-    <%= simple_form_for booking do |f| %>
-      <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
-      <%= f.submit 'Decline', class: 'btn btn-danger' %>
-    <% end %>
-  <% else %>
-    <p class='booking-tag'><%= booking.status %></p>
-  <% end %>
-
-  <hr>
+  <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+  <%= render 'owner_booking_card', booking: booking %>
+  <%# </div> %>
 <% end %>
+</div>
