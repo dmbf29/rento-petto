@@ -1,41 +1,61 @@
 <div class="container my-5">
+  <h1>
+    <strong><%= @pet.name %></strong>
+  </h1>
   <div class="row">
     <div class="col col-md-4">
       <%= cl_image_tag @pet.photo.key, class: 'w-100'%>
     </div>
-    <div class="col col-md-4">
-      <p id="notice"><%= notice %></p>
-        <p>
-          <strong>Name:</strong>
-          <%= @pet.name %>
-        </p>
-        <p>
+
+      <div class="col col-md-4">
+        <div class="new-booking-card" data-controller="booking-picker">
+          <%= render 'booking_form' %>
+        </div>
+      </div>
+  </div>
+      <div class="row mt-4">
+      <div class="col col-md-8">
+          <h2>
           <strong>Species:</strong>
           <%= @pet.species %>
-        </p>
-        <p>
+          </h2>
+          <p>
           <strong>Description:</strong>
           <%= @pet.description %>
-        </p>
-        <p>
+          </p>
+          <p>
           <strong>Owner's address:</strong>
           <%= @pet.location %>
-        </p>
-        <p>
+          </p>
+          <p>
           <strong>What is this pet like?:</strong>
           <%= @pet.character %>
-        </p>
-        <p>
-          <strong>Price:</strong>
+          </p>
+          <p>
+          <strong>Price: ¥</strong>
           <%= @pet.price %>
-        </p>
+          <strong> / day</strong>
+        　</p>
+          <%= link_to 'Back', pets_path, class: "btn btn-gradient"%>
+      </div>
+      </div>
+
+      <div class="col col-md-8">
+        <div class="card-white px-3 mb-3">
+
+      </div>
+
+    </div>
+    </div>
+
+  </div>
+
         <% if policy(@pet).edit? %>
           <%= link_to 'Edit', edit_pet_path(@pet) %> |
         <% end %>
-        <%= link_to 'Back', pets_path %>
       </div>
       <div class="col col-md-4">
-        <%= render 'booking_form'%>
+
       </div>
     </div>
   </div>
