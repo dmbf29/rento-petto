@@ -5,12 +5,6 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).order(:start_date)
   end
 
-  # GET /restaurants/1
-  # def show
-    # authorize @restaurant # performed in the set_restaurant
-  # end
-
-  # GET /restaurants/new
   def new
     @booking = Booking.new
     @pet = Pet.find_by(params[:id])
@@ -43,7 +37,7 @@ class BookingsController < ApplicationController
 
     # authorize @restaurant # performed in the set_restaurant
     if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking was successfully updated.'
+      redirect_to owner_bookings_path, notice: 'Booking was successfully updated.'
     else
       render :edit
     end
@@ -67,6 +61,6 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:pet_id, :user_id, :start_date, :return_date)
+    params.require(:booking).permit(:pet_id, :user_id, :start_date, :return_date, :status)
   end
 end

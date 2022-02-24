@@ -9,6 +9,12 @@ class Booking < ApplicationRecord
 
   validate :dates_cannot_be_in_the_past
   validate :start_before_return
+  enum status: {
+    pending: 0,
+    accepted: 1,
+    declined: 2,
+    archived: 3
+  }
 
   def dates_cannot_be_in_the_past
     errors.add(:start_date, "Sorry, can't be in the past") if start_date.present? && start_date < Date.today
@@ -19,10 +25,5 @@ class Booking < ApplicationRecord
     errors.add(:checkout, "Sorry, starting date can't be before returning date.") if start_date.present? && return_date.present? && return_date < start_date
   end
 
-  enum status: {
-    pending: 0,
-    active: 1,
-    archived: 2
-  }
 
 end

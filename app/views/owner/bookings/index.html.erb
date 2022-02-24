@@ -1,6 +1,8 @@
-<h1>Owner::Bookings#index</h1>
-<p>Find me in app/views/owner/bookings/index.html.erb</p>
-<h1>Here are all the bookings</h1>
-      <%= @bookings.each do |booking| %>
-        <%= booking %>
-      <% end %>
+<h1 class="text-center mt-3">Rentals for my pets</h1>
+<div class="container">
+<% @bookings.each do |booking| %>
+  <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+  <%= render 'owner_booking_card', booking: booking %>
+  <%# </div> %>
+<% end %>
+</div>
