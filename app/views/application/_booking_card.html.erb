@@ -1,4 +1,3 @@
-
 <div class="card-product my-3">
   <%= cl_image_tag booking.pet.photo.key if booking.pet.photo.attached? %>
   <h3><span class="status-pill"><%= booking.status %></span></h3>
@@ -10,8 +9,8 @@
     </div>
     <div class="w-50 mx-1 text-end">
       <h2>Rental details <i class="fas fa-paw"></i></h2>
-      <p>Pick up <i class="far fa-calendar-alt"></i><%= booking.pet.name %> at <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
-      <p>Return <i class="far fa-calendar-alt"></i><%= booking.pet.name %> at <%= booking.return_date.strftime("%b %e, %l:%M %p") %></p>
+      <p><i class="far fa-calendar-alt"></i><%= booking.pet.name %> Pick up at <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+      <p><i class="far fa-calendar-alt"></i><%= booking.pet.name %> Return at <%= booking.return_date.strftime("%b %e, %l:%M %p") %></p>
       <p>Owner's notes:</p>
       <p>"<%= booking.pet.description %>"</p>
     </div>
