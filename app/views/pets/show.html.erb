@@ -16,6 +16,10 @@
         <%= @pet.description %>
       </p>
       <p>
+        <strong>Owner's name:</strong>
+        <%= @pet.user.first_name %> <%= @pet.user.last_name %>
+      </p>
+      <p>
         <strong>Owner's address:</strong>
         <%= @pet.location %>
       </p>
@@ -36,9 +40,6 @@
       </div>
     </div>
   </div>
-  <% if policy(@pet).edit? %>
-    <%= link_to 'Edit', edit_pet_path(@pet) %> |
-  <% end %>
 </div>
 <div class="col col-md-4">
 </div>
