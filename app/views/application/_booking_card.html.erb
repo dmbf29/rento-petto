@@ -5,13 +5,13 @@
   <div class="card-product-infos w-100 d-flex justify-content-between">
     <div class="w-50 mx-1 text-start">
       <h2>Enjoy your time with <span class="pet-name"><%= booking.pet.name %></span>!</h2>
-      <p><%= booking.pet.name %>'s owner is <%= booking.pet.user.first_name %> <%= booking.pet.user.last_name %>. </p>
+      <p><%= booking.pet.name %>'s owner is <%= booking.user.first_name %> <%= booking.user.last_name %>.</p>
       <p><i class="fas fa-map-marked-alt"></i> <%= booking.pet.location %></p>
     </div>
     <div class="w-50 mx-1 text-end">
       <h2>Rental details <i class="fas fa-paw"></i></h2>
-      <p><i class="far fa-calendar-alt"></i> Pick up <%= booking.pet.name %> at <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
-      <p><i class="far fa-calendar-alt"></i> Return <%= booking.pet.name %> by <%= booking.return_date.strftime("%b %e, %l:%M %p") %></p>
+      <p>Pick up <i class="far fa-calendar-alt"></i><%= booking.pet.name %> at <%= booking.start_date.strftime("%b %e, %l:%M %p") %></p>
+      <p>Return <i class="far fa-calendar-alt"></i><%= booking.pet.name %> at <%= booking.return_date.strftime("%b %e, %l:%M %p") %></p>
       <p>Owner's notes:</p>
       <p>"<%= booking.pet.description %>"</p>
     </div>
