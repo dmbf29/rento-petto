@@ -1,5 +1,5 @@
 <div class="card-trip">
-  <img src=<%= pet.photo_url %> >
+  <%= cl_image_tag pet.photo.key %>
   <%= link_to '', pet_path(pet) %>
   <div class="card-trip-infos">
     <div>
