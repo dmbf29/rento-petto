@@ -16,34 +16,57 @@
       </div>
     </div>
     -->
-<div class="banner mb-5">
-  <video autoplay muted loop id="myVideo">
+<!--
+  <div class="container content">
+    <div class="container">
+        <h1><strong>Rentto Petto</strong></h1>
+        <p>Let's find new pet! Don’t miss this onece in a lifetime meeting!</p>
+        <%= link_to "See All Pets!", pets_path, class: "btn btn-gradient" %>
+      </div>
+  </div>
+-->
+
+<div class="video_banner">
+
+  <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+  <div class="overlay"></div>
+
+  <!-- The HTML5 video element that will create the background video on the header -->
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
     <source src="<%= image_path 'landingpage.mp4' %>" type="video/mp4">
   </video>
-  <div class="container content">
-    <a class="ancer" href="#ancer"><i class="fas fa-angle-down text-white"></i></a>
+
+  <!-- The header content -->
+  <div class="video_container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3"><strong>Rentto Petto</strong></h1>
+        <p class="lead my-4">Let's find new pet! Don’t miss this onece in a lifetime meeting!</p>
+        <%= link_to "See All Pets!", pets_path, class: "btn btn-gradient" %>
+      </div>
+    </div>
   </div>
 </div>
 
     <div class="container">
     <div class="cards my-5">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-        Cats
+      <div type="button" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      <a href="http://[::1]:3000/pets">Cats</a>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/3299905/pexels-photo-3299905.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
-        Dogs
+      <div type="button" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/3299905/pexels-photo-3299905.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+      <a href="http://[::1]:3000/pets">Dogs</a>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/234054/pexels-photo-234054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-        Monkeys
+      <div type="button" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/234054/pexels-photo-234054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      <a href="http://[::1]:3000/pets">Monkeys</a>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/10963093/pexels-photo-10963093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-        Rabbits
+      <div type="button" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/10963093/pexels-photo-10963093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      <a href="http://[::1]:3000/pets">Rabbits</a>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-        Birds
+      <div type="button" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/37833/rainbow-lorikeet-parrots-australia-rainbow-37833.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      <a href="http://[::1]:3000/pets">Birds</a>
       </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1394938/pexels-photo-1394938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
-        Snakes
+      <div type="button" class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/1394938/pexels-photo-1394938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+      <a href="http://[::1]:3000/pets">Snakes</a>
       </div>
     </div>
     </div>

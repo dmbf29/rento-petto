@@ -2,7 +2,7 @@
   <%= cl_image_tag booking.pet.photo.key if booking.pet.photo.attached? %>
 
 
-  <h3><span class="status-pill"><%= booking.status %></span></h3>
+  <h3><span class="status-pill <%= booking.status %>"><%= booking.status %></span></h3>
 
   <div class="card-product-infos w-100 d-flex justify-content-between">
     <div class="w-50 mx-1 text-start">

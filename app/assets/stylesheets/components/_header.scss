@@ -1,0 +1,63 @@
+.video_banner {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .video_container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  h1{
+    background-position: center;
+    color: floralwhite;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 68px;
+    font-weight: bold;
+  }
+
+  .btn-gradient {
+    padding: 20px;
+    width: 20%;
+    color: floralwhite;
+    padding: 8px 24px;
+    border-radius: 4px;
+    background: #1EDD88;
+    transition: background 0.3s ease;
+    font-weight: bold;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(#F4CC57, #F4CC57);
+    color: white;
+  }
+
+}
