@@ -171,7 +171,6 @@ addresses =
         )
 
         p.save!
-        p photo
         file = URI.open(photo)
         p.photo.attach(io: file, filename: 'pet.png', content_type: 'image/png')
         print "*"
