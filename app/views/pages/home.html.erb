@@ -16,6 +16,7 @@
       </div>
     </div>
     -->
+<!--
 <div class="banner mb-5">
   <video autoplay muted loop id="myVideo">
     <source src="<%= image_path 'landingpage.mp4' %>" type="video/mp4">
@@ -24,6 +25,27 @@
     <a class="ancer" href="#ancer"><i class="fas fa-angle-down text-white"></i></a>
   </div>
 </div>
+-->
+<header>
+
+  <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+  <div class="overlay"></div>
+
+  <!-- The HTML5 video element that will create the background video on the header -->
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="<%= image_path 'landingpage.mp4' %>" type="video/mp4">
+  </video>
+
+  <!-- The header content -->
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Video Header</h1>
+        <p class="lead mb-0">Using HTML5 Video and Bootstrap</p>
+      </div>
+    </div>
+  </div>
+</header>
 
     <div class="container">
     <div class="cards my-5">
