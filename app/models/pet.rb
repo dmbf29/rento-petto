@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
   belongs_to :user
   has_many :bookings
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
   validates :name, presence: true, length: { minimum: 2 }

@@ -105,6 +105,7 @@ pet_photos =
   }
 
 # destroy all instances
+Review.destroy_all
 Booking.destroy_all
 Pet.destroy_all
 User.destroy_all
