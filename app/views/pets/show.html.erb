@@ -7,10 +7,10 @@
       <%= cl_image_tag @pet.photo.key, class: 'w-100'%>
     </div>
     <div class="col col-md-4">
-      <h2>
+      <p>
         <strong>Species:</strong>
         <%= @pet.species %>
-      </h2>
+      </p>
       <p>
         <strong>Description:</strong>
         <%= @pet.description %>
@@ -33,13 +33,9 @@
         <strong> / day</strong>
       </p>
       <hr>
-      <%= simple_form_for([@pet, @review]) do |f|%>
-        <%= f.input :content  %>
-        <%= f.input :rating, collection: 1..5  %>
-        <%= f.submit "Submit"%>
-      <% end %>
+      <%= render 'review_form' %>
       <hr>
-      <h4>What users are saying about <%= @pet.name %></h4>
+      <h5>What users say about <%= @pet.name %> <span class="ratings-display-star"><i class="fas fa-star"></span></i></h5>
       <hr>
       <div id="reviews">
         <% if @pet.reviews.blank? %>
@@ -47,7 +43,9 @@
         <% else %>
           <% @pet.reviews.each do |review| %>
             <p><%= review.content %></p>
-            <p><%= review.rating %></p>
+            <% review.rating.times do %>
+              <span class="ratings-display-star"><i class="fas fa-star"></span></i>
+            <% end %>
             <p><small><%= time_ago_in_words(review.created_at) %>ago</small></p>
           <% end %>
         <% end %>
