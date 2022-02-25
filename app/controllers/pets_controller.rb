@@ -3,6 +3,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = policy_scope(Pet) # looks inside pet_policy resolve to find Pet.all, policy_scope is only used in index
+    @pet = Pet.new
   end
 
   def show

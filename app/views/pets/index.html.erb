@@ -3,7 +3,10 @@
   <p>They can't wait to play with you!</p>
   <p id="notice"><%= notice %></p>
   <% if policy(Pet).new? %>
-    <%= link_to 'Add your pet for rental', new_pet_path, class: "btn btn-success my-3" %>
+    <button type="button" class="btn btn-success my-3" data-bs-toggle="modal" data-bs-target="#newpet">
+      Add your pet for rental
+    </button>
+    <%=render 'pets/new' %>
   <% end %>
   <div class="cards">
     <% @pets.each do |pet| %>
