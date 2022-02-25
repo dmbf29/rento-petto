@@ -33,9 +33,10 @@
         <strong> / day</strong>
       </p>
       <hr>
+      <h5>What was your experience with <%= @pet.name %>?</h5>
       <%= render 'review_form' %>
       <hr>
-      <h5>What users say about <%= @pet.name %> <span class="ratings-display-star"><i class="fas fa-star"></span></i></h5>
+      <h5>What users say about <%= @pet.name %></h5>
       <hr>
       <div id="reviews">
         <% if @pet.reviews.blank? %>

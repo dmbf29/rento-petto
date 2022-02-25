@@ -7,8 +7,11 @@
       <%= f.input :description %>
       <%= f.input :species %>
       <%= f.input :price %>
+      <br>
       <%= f.input :photo, as: :file %>
-      <%= f.submit %>
+      <br>
+      <%= f.button :submit, "Addo Petto", class: "btn btn-success my-2" %>
     <% end %>
+    <%= link_to "Back", pets_path, class: "btn btn-gradient my-2" %>
   </div>
 </section>
