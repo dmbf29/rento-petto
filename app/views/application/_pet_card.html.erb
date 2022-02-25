@@ -4,8 +4,15 @@
   <div class="card-trip-infos">
     <div>
       <h2><%= pet.name %></h2>
-      <h2>Pet's Owner: <%= pet.user.first_name %></h2>
+      <p>Pet's Owner: <%= pet.user.first_name %></p>
       <p>"<%= pet.description %>"</p>
+      <% if pet.reviews.any? %>
+        <% average = 0 %>
+        <% pet.reviews.each do |review| %>
+          <% average += review.rating %>
+        <% end %>
+        <i class="fas fa-star" style="color: #FD4;"></i> <%= (average/pet.reviews.length).round(1) %>
+      <% end %>
     </div>
     <h3 class="card-trip-pricing"><%= pet.price %>円</h3>
     <img src="https://avatars.githubusercontent.com/u/59186645?v=4" class="card-trip-user avatar-bordered" />
