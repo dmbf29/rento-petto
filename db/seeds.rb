@@ -44,7 +44,7 @@ pet_photos =
     "https://images.pexels.com/photos/800330/pexels-photo-800330.jpeg?h=500&w=600"],
 
     monkeys:
-    ["https://images.pexels.com/photos/6822712/pexels-photo-6822712.jpegh=500&w=600",
+    ["https://images.pexels.com/photos/6822712/pexels-photo-6822712.jpeg?h=500&w=600",
     "https://images.pexels.com/photos/1670413/pexels-photo-1670413.jpeg?h=500&w=600",
     "https://images.pexels.com/photos/2499760/pexels-photo-2499760.jpeg?h=500&w=600",
     "https://images.pexels.com/photos/8026840/pexels-photo-8026840.jpeg?h=500&w=600",
@@ -53,7 +53,7 @@ pet_photos =
     "https://images.pexels.com/photos/3822505/pexels-photo-3822505.jpeg?h=500&w=600"],
 
     rabbits:
-    ["https://images.pexels.com/photos/104373/pexels-photo-104373.jpegh=500&w=600",
+    ["https://images.pexels.com/photos/104373/pexels-photo-104373.jpeg?h=500&w=600",
     "https://images.pexels.com/photos/3820509/pexels-photo-3820509.jpeg?h=500&w=600",
     "https://images.pexels.com/photos/10985455/pexels-photo-10985455.jpeg?h=500&w=600",
     "https://images.pexels.com/photos/7945944/pexels-photo-7945944.jpeg?h=500&w=600",
@@ -90,6 +90,10 @@ User.create!(first_name: "Risako", last_name: "Nagai", password: "123456", email
 User.create!(first_name: "Taylor", last_name: "Mravic", password: "123456", email:"taylor@mravic.com")
 User.create!(first_name: "Doug", last_name: "Theman", password: "123456", email:"doug@theman.com")
 User.create!(first_name: "Trouni", last_name: "Assassin", password: "123456", email:"trouni@assassin.com")
+User.all.each do |user|
+  file = URI.open('https://thispersondoesnotexist.com/image')
+    user.photo.attach(io: file, filename: 'avatar.jpeg', content_type: 'image/jpeg')
+end
 
 
 # FAKE PET ADDRESSES IN TOKYO
@@ -117,8 +121,8 @@ addresses =
       first_name: full.split[0],
       last_name: full.split[1],
       email: Faker::Internet.email,
-      password: "123456",
-      avatar:
+      password: "123456"
+
     )
 
     u.save!
@@ -141,6 +145,7 @@ addresses =
         )
 
         p.save!
+        p photo
         file = URI.open(photo)
         p.photo.attach(io: file, filename: 'pet.png', content_type: 'image/png')
         print "*"
