@@ -8,6 +8,6 @@
       <p>"<%= pet.description %>"</p>
     </div>
     <h3 class="card-trip-pricing"><%= pet.price %>円</h3>
-    <img src="https://avatars.githubusercontent.com/u/59186645?v=4" class="card-trip-user avatar-bordered" />
+    <%=cl_image_tag pet.user.photo.key, class: "card-trip-user avatar-bordered" %>
   </div>
 </div>
