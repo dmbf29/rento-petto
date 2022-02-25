@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to pets_path
     else
-      render 'pet/show'
+      render 'pets/show'
     end
 
   end

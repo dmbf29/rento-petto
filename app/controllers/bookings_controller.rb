@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
+      @review = Review.new
       render 'pets/show'
     end
   end

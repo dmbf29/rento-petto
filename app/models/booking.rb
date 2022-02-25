@@ -17,12 +17,14 @@ class Booking < ApplicationRecord
   }
 
   def dates_cannot_be_in_the_past
-    errors.add(:start_date, "Sorry, can't be in the past") if start_date.present? && start_date < Date.today
-    errors.add(:return_date, "Sorry, can't be in the past") if return_date.present? && return_date < Date.today
+    errors.add(:start_date, "can't be in the past") if start_date.present? && start_date < Date.today
+    errors.add(:return_date, "can't be in the past") if return_date.present? && return_date < Date.today
   end
 
   def start_before_return
-    errors.add(:checkout, "Sorry, starting date can't be before returning date.") if start_date.present? && return_date.present? && return_date < start_date
+    if start_date.present? && return_date.present? && return_date < start_date
+      errors.add(:return_date, "can't be before start date")
+    end
   end
 
 
