@@ -50,7 +50,7 @@
             <% review.rating.times do %>
               <span class="ratings-display-star"><i class="fas fa-star"></span></i>
             <% end %>
-            <p><small><%= time_ago_in_words(review.created_at) %>ago</small></p>
+            <p><small><%= time_ago_in_words(review.created_at) %> ago</small></p>
           <% end %>
         <% end %>
       </div>
