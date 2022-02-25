@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     # POST /pets
     resources :bookings, only: [:create]
       # POST /pets/:pet_id/bookings
+    resources :reviews, only: [:create]
   end
   resources :bookings, only: [:index, :update]
     # GET /bookings/

@@ -9,6 +9,7 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     authorize @pet # authorize is used everywhere but index
     @booking = Booking.new # because we are making a form on the show page, we need a blank booking
+    @review = Review.new
   end
 
   def new
