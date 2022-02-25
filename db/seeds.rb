@@ -78,6 +78,32 @@ pet_photos =
     "https://images.pexels.com/photos/8838073/pexels-photo-8838073.jpeg?h=500&w=600"]
   }
 
+  content =
+
+  {
+    3 =>
+
+    ['My carpets got pee all over, but it was great, lol.',
+    'Our kid got scratches but had a great time. Thank you!!',
+    'Apart from cleaning up, it was great, will definitely book again.'],
+
+
+    4 =>
+
+    ['Its been a while since I had a pet, thank you for this wonderful experience.',
+    'Thank you, we had a blast!',
+    'I really appreciate this service, I feel so much better now.',
+    'Allowed me to have an experience of having a pet without any inconvenience.',],
+
+    5 =>
+
+    ['Man, this was awesome, I wish I came accross your service earlier..',
+    'Very good! I wish to see more varieties of species though.',
+    'I always wanted a pet but my rental does not allow it. I was happy to find this app.',
+    'Loved the App, Loved the Pet. Thank you so much.']
+
+  }
+
 # destroy all instances
 Booking.destroy_all
 Pet.destroy_all
@@ -164,6 +190,30 @@ addresses =
     )
   end
 
+  # GENERATING FAKE REVIEWS
+
+  Pet.all.each do |pet|
+  rand(0..3).times do
+    review = content.to_a.sample
+          r = Review.new(
+            user: User.where.not(id: pet.user).sample,
+            pet: pet,
+            rating: review[0],
+            content: review[1].sample
+          )
+          r.save!
+     end
+  end
+
+
+
+
+
+  # 12.times do
+  #   review = Review.new(
+  #     rating: rand(3..5),
+  #     content.sample
+  #   )
 
 # randomizing users and pets methods
 def random_user
